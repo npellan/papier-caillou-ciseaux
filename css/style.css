@@ -4,7 +4,7 @@
 }
 
 .top {
-    background-color: orange;
+    background-color: #20639a;
     height: 20vh;
     display: flex;
     justify-content: center;
@@ -23,19 +23,41 @@
     align-items: center;
 }
 
-.game__player {
-    background-color: blue;
+.computer {
+    background-color: #ec553a;
     width: 50%;
     height: 80vh;
 }
 
-.game__computer {
-    background-color: lightblue;
+.player {
+    background-color: #f5d55c;
     width: 50%;
     height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
-.player_score__title {
+.player__buttons {
+    margin: 2rem;
+}
+
+.player__button {
+    padding: 1.2rem;
+    background-color: #ec553a;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    margin: 0 10px;
+}
+
+.score {
+    margin: 2rem;
+}
+
+.score__title {
     text-align: center;
     color: white;
     font-size: 1.3rem;
