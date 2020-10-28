@@ -47,23 +47,33 @@ function playerPpcImage(event) {
   let computerScore = 0;
 
   if (playerChoiceData === 1 && computerChoiceData === 2) {
-    playerScore++;
+    playerScore++
+    document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
+    document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
   } else if (playerChoiceData === 1 && computerChoiceData === 3) {
-    computerScore++;
+    computerScore++
+    document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
+    document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
   } else if (playerChoiceData === 2 && computerChoiceData === 3) {
-    playerScore++;
+    playerScore++
+    document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
+    document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
   } else if (playerChoiceData === 2 && computerChoiceData === 1) {
-    computerScore++;
+    computerScore++
+    document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
+    document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
   } else if (playerChoiceData === 3 && computerChoiceData === 1) {
-    playerScore++;
+    playerScore++
+    document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
+    document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
   } else if (playerChoiceData === 3 && computerChoiceData === 2) {
-    computerScore++;
+    computerScore++
+    document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
+    document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
   } else if (playerChoiceData === computerChoiceData) {
-    console.log('Egalité !');
+    document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
+    document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
   }  
-
-  console.log('score joueur', playerScore);
-  console.log('score ordi', computerScore);
 }
 
 
@@ -89,17 +99,5 @@ function computerPlay() {
   computerPpcImage.style.backgroundPosition = -(computerChoice*100 - 100) + 'px';
 }
 
+
 playerPlay();
-
-
-/*
-do {
-  playerPlay();
-} while (playerScore < 3 && computerScore < 3);
-
-if (playerScore > computerScore) {
-  alert('Vous avez gagné avec ' + playerScore + ' points contre ' + computerScore + ' points !');
-} else {
-  alert('Vous avez perdu avec ' + playerScore + ' points contre ' + computerScore + ' points !');
-}
-*/

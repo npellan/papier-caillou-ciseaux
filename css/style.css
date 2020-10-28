@@ -92,9 +92,6 @@
 .score {
     margin: 2rem;
     width: 100%;
-}
-
-.score__title {
     text-align: center;
     color: black;
     font-size: 1.3rem;
