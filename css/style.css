@@ -26,21 +26,57 @@
 .computer {
     background-color: #ec553a;
     width: 50%;
-    height: 80vh;
+    height: calc(80vh - 3rem);
+    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .player {
     background-color: #f5d55c;
     width: 50%;
-    height: 80vh;
+    height: calc(80vh - 3rem);
+    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.player__board {
+    background-color: white;
+    min-width: 300px;
+    min-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px #666;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
 }
 
-.player__buttons {
+.computer__board {
+    background-color: white;
+    min-width: 300px;
+    min-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 1px #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pcc {
+    background-image: url('../images/sprites.jpg');
+    width: 100px;
+    height: 100px;
+    margin: 1rem;
+}
+
+.player__choices {
     margin: 2rem;
 }
 
@@ -55,10 +91,11 @@
 
 .score {
     margin: 2rem;
+    width: 100%;
 }
 
 .score__title {
     text-align: center;
-    color: white;
+    color: black;
     font-size: 1.3rem;
 }

@@ -17,22 +17,29 @@
         </header>
         <main class="game">
             <div class="player">
-                <div class="player__buttons">
-                    <button class="player__button">Papier</button>
-                    <button class="player__button">Caillou</button>
-                    <button class="player__button">Ciseaux</button>
+                <div id="playerBoard" class="player__board">
+
                 </div>
                 <div class="score">
-                    <p class="score__title">Votre score</p>
+                    <p class="score__title">Votre score : 3</p>
                 </div>
+                <form id="playerChoices" class="player__choices">
+                    <button class="player__button" data-ppc="1">Papier</button>
+                    <button class="player__button" data-ppc="2">Caillou</button>
+                    <button class="player__button" data-ppc="3">Ciseaux</button>
+                </form>
             </div>
             <div class="computer">
+                <div id="computerBoard" class="computer__board">
+                    
+                </div>
                 <div class="score">
-                    <p class="score__title">Son score</p>
+                    <p class="score__title">Son score : 1</p>
                 </div>
             </div>
         </main>
     </div>
-<!--     <script src="../js/game.js"></script>
- --></body>
+
+    <script src="../js/game.js"></script>
+</body>
 </html>
