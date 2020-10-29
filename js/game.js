@@ -10,6 +10,12 @@ const game = {
       return roundedRandomNumber;
   },
 
+  scores: {
+    player: 0,
+    computer: 0,
+    end: 3,
+  },
+
   /**
    * Vide le board du joueur
    */
@@ -27,7 +33,7 @@ const game = {
   /**
    * Fonction qui, au clic du joueur sur son choix, vide les 2 boards, et génère le choix du joueur et de l'ordinateur dans les boards respectives
    */
-  playerPpcImage: (event) => {
+  launcher: (event) => {
     // On vide les 2 boards
     game.clearPlayerBoard();
     game.clearComputerBoard();
@@ -57,39 +63,42 @@ const game = {
     let playerChoiceData = parseInt(document.querySelector('#playerBoard').getAttribute('data-pcc'));
     let computerChoiceData = parseInt(document.querySelector('#computerBoard').getAttribute('data-pcc'));
 
-    // On initialise les scores
-    let playerScore = 0;
-    let computerScore = 0;
-
     // On effectue la comparaison, on incrémente les scores et on les affiche les scores sous les boards
     if (playerChoiceData === 1 && computerChoiceData === 2) {
-      playerScore++
-      document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
-      document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
+      game.scores.player++
+      document.querySelector('#playerScore').textContent = `Votre score : ${game.scores.player}` ;
+      document.querySelector('#computerScore').textContent = `Son score : ${game.scores.computer}` ;
     } else if (playerChoiceData === 1 && computerChoiceData === 3) {
-      computerScore++
-      document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
-      document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
+      game.scores.computer++
+      document.querySelector('#playerScore').textContent = `Votre score : ${game.scores.player}` ;
+      document.querySelector('#computerScore').textContent = `Son score : ${game.scores.computer}` ;
     } else if (playerChoiceData === 2 && computerChoiceData === 3) {
-      playerScore++
-      document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
-      document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
+      game.scores.player++
+      document.querySelector('#playerScore').textContent = `Votre score : ${game.scores.player}` ;
+      document.querySelector('#computerScore').textContent = `Son score : ${game.scores.computer}` ;
     } else if (playerChoiceData === 2 && computerChoiceData === 1) {
-      computerScore++
-      document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
-      document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
+      game.scores.computer++
+      document.querySelector('#playerScore').textContent = `Votre score : ${game.scores.player}` ;
+      document.querySelector('#computerScore').textContent = `Son score : ${game.scores.computer}` ;
     } else if (playerChoiceData === 3 && computerChoiceData === 1) {
-      playerScore++
-      document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
-      document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
+      game.scores.player++
+      document.querySelector('#playerScore').textContent = `Votre score : ${game.scores.player}` ;
+      document.querySelector('#computerScore').textContent = `Son score : ${game.scores.computer}` ;
     } else if (playerChoiceData === 3 && computerChoiceData === 2) {
-      computerScore++
-      document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
-      document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
+      game.scores.computer++
+      document.querySelector('#playerScore').textContent = `Votre score : ${game.scores.player}` ;
+      document.querySelector('#computerScore').textContent = `Son score : ${game.scores.computer}` ;
     } else if (playerChoiceData === computerChoiceData) {
-      document.querySelector('#playerScore').textContent = `Votre score : ${playerScore}` ;
-      document.querySelector('#computerScore').textContent = `Son score : ${computerScore}` ;
-    }  
+      document.querySelector('#playerScore').textContent = `Votre score : ${game.scores.player}` ;
+      document.querySelector('#computerScore').textContent = `Son score : ${game.scores.computer}` ;
+    }
+
+    // Fin du jeu lorsque l'un des deux joueurs arrive à trois points
+    if (game.scores.player === game.scores.end) {
+      document.querySelector('#resultMessage').textContent = "Vous avez gagné !";
+    } else if (game.scores.computer === game.scores.end) {
+      document.querySelector('#resultMessage').textContent = "Vous avez perdu !";
+    }
   },
 
   /**
@@ -98,7 +107,7 @@ const game = {
   playerPlay: () => {
     // On ajoute un écouteur d'événement aux boutons du form
     document.querySelectorAll('#playerChoices').forEach(item => {
-    item.addEventListener('click', game.playerPpcImage)});
+    item.addEventListener('click', game.launcher)});
   },
 
   /**
