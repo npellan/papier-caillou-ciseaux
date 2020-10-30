@@ -33,7 +33,13 @@ const game = {
   /**
    * Fonction qui, au clic du joueur sur son choix, vide les 2 boards, et génère le choix du joueur et de l'ordinateur dans les boards respectives
    */
-  launcher: (event) => {
+  play: (event) => {
+    // On affiche les 3 boutons de choix
+    document.querySelector('#playerChoices').style.display = "block";
+
+    // On cache l'id result (message + bouton)
+    document.querySelector('.result').style.display = "none";
+
     // On vide les 2 boards
     game.clearPlayerBoard();
     game.clearComputerBoard();
@@ -95,8 +101,23 @@ const game = {
 
     // Fin du jeu lorsque l'un des deux joueurs arrive à trois points
     if (game.scores.player === game.scores.end) {
+      // On écoute le bouton rejouer
+      document.querySelector('#playAgain').addEventListener('click', game.play);
+      // On cache les boutons de jeu
+      document.querySelector('#playerChoices').style.display = "none";
+      // On affiche la div result et on écrit un message
+      document.querySelector('.result').style.display = "flex";
+      document.querySelector('#playAgain').style.display = "inline-block";
       document.querySelector('#resultMessage').textContent = "Vous avez gagné !";
+      debugger;
     } else if (game.scores.computer === game.scores.end) {
+      // On écoute le bouton rejouer
+      document.querySelector('#playAgain').addEventListener('click', game.play);
+      // On cache les boutons de jeu
+      document.querySelector('#playerChoices').style.display = "none";
+      // On affiche la div result et on écrit un message
+      document.querySelector('.result').style.display = "flex";
+      document.querySelector('#playAgain').style.display = "inline-block";
       document.querySelector('#resultMessage').textContent = "Vous avez perdu !";
     }
   },
@@ -104,10 +125,10 @@ const game = {
   /**
    * Fonction écouteur d'événement au clic du joueur sur l'un des 3 boutons "papier", "caillou", "ciseaux"
    */
-  playerPlay: () => {
+  launch: () => {
     // On ajoute un écouteur d'événement aux boutons du form
     document.querySelectorAll('#playerChoices').forEach(item => {
-    item.addEventListener('click', game.launcher)});
+    item.addEventListener('click', game.play)});
   },
 
   /**
@@ -129,7 +150,7 @@ const game = {
   },
 
   init: () => {
-    game.playerPlay();
+    game.launch();
   }
 }
 
