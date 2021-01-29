@@ -1,4 +1,3 @@
-# papier-caillou-ciseaux
-Papier, caillou, ciseaux in JS
+# Papier, caillou, ciseaux in JS
 
 First project made after 2 weeks of learning Javascript
